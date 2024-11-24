@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="StarWarsLanza.Views.CharacterRequest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarWarsLanza.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#1B1B1B">
+
+    <Grid Padding="20">
+        <Grid.Resources>
+            <!-- Define AcrylicBrush for glassy effect -->
+            <AcrylicBrush x:Key="AcrylicBackgroundBrush"
+                          BackgroundSource="HostBackdrop"
+                          TintColor="#1C1C1C"
+                          TintOpacity="0.8"
+                          FallbackColor="LightGray" />
+
+            <!-- Define a ThemeShadow -->
+            <ThemeShadow x:Key="GridShadow" />
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="16">
+            <Image Source="/Assets/logo.png" 
+                   Stretch="Uniform" 
+                   HorizontalAlignment="Center" Height="174" Width="306" />
+            <TextBlock Text="A SWAPI Wrapper in CS"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="36"
+                       FontWeight="Bold"
+                       FontFamily="Segoe UI"
+                       Foreground="LightBlue"
+                       Margin="4"
+                       Opacity="0.9" />
+
+            <!-- Search Bar and Button -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,24,0,0">
+                <TextBox Width="400" Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Filter by Name or Planet" 
+                         BorderBrush="LightBlue" FontWeight="Bold" BorderThickness="2" CornerRadius="10" 
+                         Foreground="White" Background="#333333" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- List of Characters -->
+        <ListView Grid.Row="1" Margin="0,24,0,0"
+                  ItemsSource="{Binding CurrentPeopleList}"
+                  IsItemClickEnabled="True"
+                  ItemClick="InfoPerson">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" MaximumRowsOrColumns="5" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="8" Width="200" Height="150">
+                        <Grid.Shadow>
+                            <StaticResource ResourceKey="GridShadow" />
+                        </Grid.Shadow>
+                        <Border Background="{StaticResource AcrylicBackgroundBrush}"
+                                CornerRadius="15"
+                                BorderBrush="#ADD8E6"
+                                BorderThickness="2"
+                                Padding="10"
+                                Opacity="0.8">
+                            <StackPanel>
+                                <CheckBox Content="Select" 
+                                          IsChecked="{Binding IsSelected, Mode=TwoWay}" 
+                                          Foreground="#ADD8E6" 
+                                          HorizontalAlignment="Center" 
+                                          Margin="0,0,0,10" />
+
+                                <TextBlock Text="{Binding Name}" 
+                                          Foreground="#ADD8E6" 
+                                          FontWeight="Bold" 
+                                          FontSize="20" 
+                                          TextAlignment="Center" 
+                                          Margin="0,0,0,10" />
+                                <Rectangle Height="2" Fill="#ADD8E6" Margin="0,0,0,10" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                                    <TextBlock Text="Planet: " Foreground="White" FontWeight="Bold" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding Planet.Name}" Foreground="Gray" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
