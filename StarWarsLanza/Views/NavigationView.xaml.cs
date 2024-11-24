@@ -22,6 +22,7 @@ namespace StarWarsLanza.Views
         public NavigationView()
         {
             this.InitializeComponent();
+            NavigationViewFrame.Navigate(typeof(Views.CharacterRequest));
         }
 
         private void OnNavigate(Object sender, RoutedEventArgs e)
