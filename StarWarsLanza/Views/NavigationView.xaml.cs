@@ -36,7 +36,7 @@ namespace StarWarsLanza.Views
 
         private void NavOne_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            NavigationViewFrame.Navigate(typeof(Views.ExportPage), e);
+            NavigationViewFrame.Navigate(typeof(Views.ExportData), e);
         }
 
         private void NavigationViewFrame_Navigated(object sender, NavigationEventArgs e)

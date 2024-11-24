@@ -16,17 +16,17 @@ using Windows.UI.Xaml.Navigation;
 
 namespace StarWarsLanza.Views
 {
-    public sealed partial class ExportPage : Page
+    public sealed partial class ExportData : Page
     {
         private string _selectedFormat;
         private const string JsonExtension = ".json";
         private const string XmlExtension = ".xml";
-        private PersonViewModel _viewModel;
+        private CharacterViewModel _viewModel;
 
-        public ExportPage()
+        public ExportData()
         {
             this.InitializeComponent();
-            _viewModel = new PersonViewModel();
+            _viewModel = new CharacterViewModel();
             DataContext = _viewModel;
         }
 
@@ -35,7 +35,7 @@ namespace StarWarsLanza.Views
             base.OnNavigatedTo(e);
 
             // verifica se esistono dati da esportare
-            if (PersonViewModel.PeopleListSelected == null || PersonViewModel.PeopleListSelected.Count == 0)
+            if (CharacterViewModel.PeopleListSelected == null || CharacterViewModel.PeopleListSelected.Count == 0)
             {
                 ShowErrorMessage("No data available to export. Please select characters first.");
                 SaveFileButton.IsEnabled = false;
@@ -84,8 +84,8 @@ namespace StarWarsLanza.Views
         {
             bool isEnabled = !string.IsNullOrWhiteSpace(fileName.Text) &&
                            !string.IsNullOrEmpty(_selectedFormat) &&
-                           PersonViewModel.PeopleListSelected != null &&
-                           PersonViewModel.PeopleListSelected.Count > 0;
+                           CharacterViewModel.PeopleListSelected != null &&
+                           CharacterViewModel.PeopleListSelected.Count > 0;
 
             SaveFileButton.IsEnabled = isEnabled;
             SaveFilePickerButton.IsEnabled = isEnabled;
@@ -98,7 +98,7 @@ namespace StarWarsLanza.Views
                 SaveFileButton.IsEnabled = false;
                 loadingRing.IsActive = true;
 
-                if (PersonViewModel.PeopleListSelected == null || PersonViewModel.PeopleListSelected.Count == 0)
+                if (CharacterViewModel.PeopleListSelected == null || CharacterViewModel.PeopleListSelected.Count == 0)
                 {
                     throw new InvalidOperationException("No characters selected for export");
                 }
@@ -137,7 +137,7 @@ namespace StarWarsLanza.Views
                 SaveFilePickerButton.IsEnabled = false;
                 loadingRing.IsActive = true;
 
-                if (PersonViewModel.PeopleListSelected == null || PersonViewModel.PeopleListSelected.Count == 0)
+                if (CharacterViewModel.PeopleListSelected == null || CharacterViewModel.PeopleListSelected.Count == 0)
                 {
                     throw new InvalidOperationException("No characters selected for export");
                 }
@@ -245,7 +245,7 @@ namespace StarWarsLanza.Views
                 }
 
                 // Add new selections
-                foreach (var person in PersonViewModel.PeopleListSelected)
+                foreach (var person in CharacterViewModel.PeopleListSelected)
                 {
                     if (person != null)
                     {
@@ -307,7 +307,7 @@ namespace StarWarsLanza.Views
                 }
 
                 // Add new selections
-                foreach (var person in PersonViewModel.PeopleListSelected)
+                foreach (var person in CharacterViewModel.PeopleListSelected)
                 {
                     if (person != null)
                     {
@@ -349,7 +349,7 @@ namespace StarWarsLanza.Views
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             // svuota la lista
-            PersonViewModel.PeopleListSelected?.Clear();
+            CharacterViewModel.PeopleListSelected?.Clear();
         }
     }
 }

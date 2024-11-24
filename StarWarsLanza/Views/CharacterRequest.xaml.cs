@@ -32,7 +32,7 @@ namespace StarWarsLanza.Views
         private readonly string _urlVehicles = "https://swapi.dev/api/vehicles/";
         private readonly string _urlStarships = "https://swapi.dev/api/starships/";
 
-        public PersonViewModel PersonViewModel { get; } = new();
+        public CharacterViewModel PersonViewModel { get; } = new();
 
         // costruttore della pagina
         public CharacterRequest()

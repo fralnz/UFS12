@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StarWarsLanza.ViewModels
 {
-    internal class PersonViewModel : INotifyPropertyChanged
+    internal class CharacterViewModel : INotifyPropertyChanged
     {
         // Inizializzo delle ObservableCollection dei modelli (definiti nella cartella Models)
         public ObservableCollection<Planet> PlanetsList { get; set; } = new();
@@ -29,9 +29,9 @@ namespace StarWarsLanza.ViewModels
         private string _searchText;
         private bool _isSaveButtonEnabled;
 
-        public PersonViewModel()
+        public CharacterViewModel()
         {
-            // inizializza la lista di persone
+            // inizializza la lista di personaggi
             CurrentPeopleList = PeopleList;
 
             // chiama la funzione per il cambiamento della lista di persona

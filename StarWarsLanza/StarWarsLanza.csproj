@@ -132,9 +132,9 @@
     <Compile Include="Models\Starship.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PersonViewModel.cs" />
-    <Compile Include="Views\ExportPage.xaml.cs">
-      <DependentUpon>ExportPage.xaml</DependentUpon>
+    <Compile Include="ViewModels\CharacterViewModel.cs" />
+    <Compile Include="Views\ExportData.xaml.cs">
+      <DependentUpon>ExportData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterRequest.xaml.cs">
       <DependentUpon>CharacterRequest.xaml</DependentUpon>
@@ -164,7 +164,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\ExportPage.xaml">
+    <Page Include="Views\ExportData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
