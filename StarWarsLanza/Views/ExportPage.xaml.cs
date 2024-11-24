@@ -34,7 +34,7 @@ namespace StarWarsLanza.Views
         {
             base.OnNavigatedTo(e);
 
-            // Verify if we have data to export
+            // verifica se esistono dati da esportare
             if (PersonViewModel.PeopleListSelected == null || PersonViewModel.PeopleListSelected.Count == 0)
             {
                 ShowErrorMessage("No data available to export. Please select characters first.");
@@ -224,7 +224,6 @@ namespace StarWarsLanza.Views
 
             try
             {
-                // Try to read existing file if it exists
                 try
                 {
                     var existingJson = await FileIO.ReadTextAsync(file);
@@ -242,7 +241,7 @@ namespace StarWarsLanza.Views
                 }
                 catch (FileNotFoundException)
                 {
-                    // New file will be created
+                    // viene creato il nuovo file
                 }
 
                 // Add new selections
@@ -284,7 +283,6 @@ namespace StarWarsLanza.Views
 
             try
             {
-                // Try to read existing file if it exists
                 try
                 {
                     var existingXml = await FileIO.ReadTextAsync(file);
@@ -305,7 +303,7 @@ namespace StarWarsLanza.Views
                 }
                 catch (FileNotFoundException)
                 {
-                    // New file will be created
+                    // crea nuovo file
                 }
 
                 // Add new selections
@@ -350,7 +348,7 @@ namespace StarWarsLanza.Views
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            // Clean up
+            // svuota la lista
             PersonViewModel.PeopleListSelected?.Clear();
         }
     }

@@ -10,14 +10,12 @@
 
     <Grid Padding="20">
         <Grid.Resources>
-            <!-- Define AcrylicBrush for glassy effect -->
             <AcrylicBrush x:Key="AcrylicBackgroundBrush"
                           BackgroundSource="HostBackdrop"
                           TintColor="#1C1C1C"
                           TintOpacity="0.8"
                           FallbackColor="LightGray" />
 
-            <!-- Define a ThemeShadow -->
             <ThemeShadow x:Key="GridShadow" />
         </Grid.Resources>
 
@@ -26,7 +24,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Header Section -->
         <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="16">
             <Image Source="/Assets/logo.png" 
                    Stretch="Uniform" 
@@ -41,7 +38,6 @@
                        Margin="4"
                        Opacity="0.9" />
 
-            <!-- Search Bar and Button -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,24,0,0">
                 <TextBox Width="400" Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Filter by Name or Planet" 
                          BorderBrush="LightBlue" FontWeight="Bold" BorderThickness="2" CornerRadius="10" 
@@ -49,7 +45,6 @@
             </StackPanel>
         </StackPanel>
 
-        <!-- List of Characters -->
         <ListView Grid.Row="1" Margin="0,24,0,0"
                   ItemsSource="{Binding CurrentPeopleList}"
                   IsItemClickEnabled="True"
@@ -72,7 +67,7 @@
                                 Padding="10"
                                 Opacity="0.8">
                             <StackPanel>
-                                <CheckBox Content="Select" 
+                                <CheckBox Content="" 
                                           IsChecked="{Binding IsSelected, Mode=TwoWay}" 
                                           Foreground="#ADD8E6" 
                                           HorizontalAlignment="Center" 

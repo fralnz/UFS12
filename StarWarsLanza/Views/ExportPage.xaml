@@ -57,39 +57,32 @@
                                FontWeight="Bold"
                                Text="Export selection"
                                TextAlignment="Center"
+                               Margin="0 20"
                                Opacity="0.8" />
-
-                    <TextBlock Text="File Format:"
-                               FontSize="16"
-                               Margin="0,10,0,5"
-                               Foreground="White"
-                               Opacity="0.8" />
-
-                    <RadioButton x:Name="JsonRadioButton"
-                                Checked="RadioButton_Checked"
-                                Content="JSON"
-                                Foreground="White"
-                                Background="Transparent"
-                                BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}" />
-
-                    <RadioButton x:Name="XmlRadioButton"
-                                Checked="RadioButton_Checked"
-                                Content="XML"
-                                Foreground="White"
-                                Background="Transparent"
-                                BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}" />
 
                     <TextBox x:Name="fileName"
                              PlaceholderText="Enter the name of the file"
                              TextChanged="checkName"
-                             Margin="0,10,0,0"
                              Background="#1E1E1E"
                              Foreground="White"
                              BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}"
                              CornerRadius="10"
+                             Margin="0 10"
                              Opacity="0.8" />
 
-                    <!-- Status Message -->
+                    <RadioButton x:Name="JsonRadioButton"
+                                 Checked="RadioButton_Checked"
+                                 Content="JSON"
+                                 Foreground="White"
+                                 Background="Transparent"
+                                 BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}" />
+                    <RadioButton x:Name="XmlRadioButton"
+                                 Checked="RadioButton_Checked"
+                                 Content="XML"
+                                 Foreground="White"
+                                 Background="Transparent"
+                                 BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}" />
+
                     <TextBlock x:Name="statusMessage"
                                Foreground="White"
                                TextAlignment="Center"
@@ -99,22 +92,9 @@
                                Opacity="0.8" />
 
                     <StackPanel Orientation="Horizontal"
-                               HorizontalAlignment="Center"
-                               Margin="0,24,0,0"
-                               Spacing="10">
-
-                        <Button Margin="10,0,0,0"
-                                Click="Button_Click_Back"
-                                Background="{ThemeResource SystemControlBackgroundListLowBrush}"
-                                Foreground="{ThemeResource SystemControlForegroundAccentBrush}"
-                                BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}"
-                                Padding="10,5"
-                                CornerRadius="10">
-                            <StackPanel Orientation="Horizontal" Spacing="5">
-                                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72B;" />
-                                <TextBlock Text="Character Selection" />
-                            </StackPanel>
-                        </Button>
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,10"
+                                Spacing="10">
 
                         <Button x:Name="SaveFileButton"
                                 IsEnabled="False"
@@ -126,7 +106,7 @@
                                 CornerRadius="10">
                             <StackPanel Orientation="Horizontal" Spacing="5">
                                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74E;" />
-                                <TextBlock Text="Save File" />
+                                <TextBlock Text="Save to Local" />
                             </StackPanel>
                         </Button>
 
@@ -144,9 +124,26 @@
                             </StackPanel>
                         </Button>
                     </StackPanel>
+                    <TextBlock Text="Selected Characters:"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Opacity="0.8" />
+                                    <ListView ItemsSource="{Binding PeopleListSelected}"
+                          Foreground="White"
+                          Background="#1E1E1E"
+                          BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}"
+                          CornerRadius="10"
+                          Margin="0 20"
+                          Opacity="0.8">
+                                        
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
 
-                <!-- Loading Overlay -->
                 <Grid x:Name="loadingOverlay"
                       Background="#80000000"
                       Visibility="Collapsed">
