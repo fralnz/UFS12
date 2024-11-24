@@ -20,7 +20,7 @@ query, nei formati XML e/o JSON. Deve potere essere salvata lista anche con i da
 filtrati (nome a/pianeta). I file vanno salvati nella localstorage.
 
 ### Esempio di struttura dati StarWars
-```JSON
+```
 name
 height
 mass
@@ -80,4 +80,6 @@ public string Name { get; set; }
 L'applicazione fa uso di un solo **View Model**: `CharacterViewModel`, che si occuipa della gestione della lista di personaggi e del loro salvataggio.
 
 ## UI
-Il progetto fa uso di **UWP** per realizzare la propria interfaccia grafica
+Il progetto fa uso di **UWP** per realizzare la propria interfaccia grafica.
+
+Ho cercato di mantenere un **tema** moderno e [glassmorphism](https://www.nngroup.com/articles/glassmorphism/).
