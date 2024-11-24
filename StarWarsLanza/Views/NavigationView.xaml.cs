@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+// Per la NavigationView ho seguito l'esempio riportato dalle registrazioni del prof.
 
 namespace StarWarsLanza.Views
 {

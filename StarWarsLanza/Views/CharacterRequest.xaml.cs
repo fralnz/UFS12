@@ -184,14 +184,8 @@ namespace StarWarsLanza.Views
                     CloseButtonText = "close"
                 };
 
-                await dialog.ShowAsync(); // mostra il dialogo
+                await dialog.ShowAsync(); // mostra il ContentDialog
             }
-        }
-
-        // metodo per salvare i dati e cambiare pagina
-        private void Button_Click_Save(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(ExportPage)); // naviga verso la pagina di esportazione
         }
     }
 }
